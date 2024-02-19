@@ -19,7 +19,7 @@ class StudentFixtures extends Fixture
             $student->setFirstname($faker->firstName);
             $student->setLastname($faker->lastName);
             $student->setBirthdate($faker->dateTimeThisCentury);
-            $manager->persist($manager);
+            $manager->persist($student);
         }
 
         $manager->flush();

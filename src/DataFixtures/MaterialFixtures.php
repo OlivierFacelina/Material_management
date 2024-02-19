@@ -10,8 +10,6 @@ class MaterialFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
         $faker = \Faker\Factory::create();
 
         for ($i=0; $i < 20; $i++){
