@@ -23,6 +23,9 @@ class Student
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $birthdate = null;
 
+    #[ORM\ManyToOne(inversedBy: 'students')]
+    private ?TrainingProgram $formation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Student
     public function setBirthdate(\DateTimeInterface $birthdate): static
     {
         $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    public function getFormation(): ?TrainingProgram
+    {
+        return $this->formation;
+    }
+
+    public function setFormation(?TrainingProgram $formation): static
+    {
+        $this->formation = $formation;
 
         return $this;
     }

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un film ! {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center">Nouveau produit</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_widget(form) }}
+                <button class="btn btn-primary" type="submit">Envoyer</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
