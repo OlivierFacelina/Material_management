@@ -14,11 +14,17 @@
             <th>Activité</th>
             <th>Action</th>
         </tr>
-        <tr>
             {% for user in users %}
+            {{ dump(users.borrowings)}}
+            <tr>
                 <th>{{ user.lastname}}</th>
+                <th>{{ user.firstname}}</th>
+                <th>{{ user.username}}</th>
+                <th>{{ user.password}}</th>
+                <th>{{ user.roles}}</th>
+                <th>Consulter / Modifier</th>
+            </tr>
             {% endfor %}
-        </tr>
     </table>
 </div>
 {% endblock %}
