@@ -4,9 +4,27 @@
 
 {% block body %}
 <div class="users">
-    <h3>Fiche profil</h3>
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
+    <h3>Barre de recherche</h3>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Fonction</th>
+            <th>Formation</th>
+            <th>Activité</th>
+            <th>Action</th>
+        </tr>
+            {% for user in users %}
+            {# {{ dump(users.borrowings)}} #}
+            <tr>
+                <th>{{ user.lastname}}</th>
+                <th>{{ user.firstname}}</th>
+                <th>{{ user.username}}</th>
+                <th>{{ user.password}}</th>
+                <th>{{ user.roles}}</th>
+                <th>Consulter / Modifier</th>
+            </tr>
+            {% endfor %}
+    </table>
 </div>
 {% endblock %}
