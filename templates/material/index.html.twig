@@ -8,13 +8,11 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/perroquot/Material_management/src/Controller/MaterialController.php</code></li>
-        <li>Your template at <code>/home/perroquot/Material_management/templates/material/index.html.twig</code></li>
-    </ul>
+<div class="list_materials_content">
+    {% for material in materials %}
+        <div class="material_array">
+            <p>{{material.name}}</p>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}
