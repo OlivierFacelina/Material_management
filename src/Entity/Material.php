@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\MaterialRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MaterialRepository::class)]
@@ -17,13 +16,13 @@ class Material
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column]
-    private ?int $serial_number = null;
+    #[ORM\Column(length: 255)]
+    private ?string $serial_number = null;
 
-    #[ORM\Column]
-    private ?int $tag_number = null;
+    #[ORM\Column(length: 255)]
+    private ?string $tag_number = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(length: 255)]
     private ?string $comment = null;
 
     #[ORM\Column(length: 255)]
@@ -46,24 +45,24 @@ class Material
         return $this;
     }
 
-    public function getSerialNumber(): ?int
+    public function getSerialNumber(): ?string
     {
         return $this->serial_number;
     }
 
-    public function setSerialNumber(int $serial_number): static
+    public function setSerialNumber(string $serial_number): static
     {
         $this->serial_number = $serial_number;
 
         return $this;
     }
 
-    public function getTagNumber(): ?int
+    public function getTagNumber(): ?string
     {
         return $this->tag_number;
     }
 
-    public function setTagNumber(int $tag_number): static
+    public function setTagNumber(string $tag_number): static
     {
         $this->tag_number = $tag_number;
 
@@ -75,7 +74,7 @@ class Material
         return $this->comment;
     }
 
-    public function setComment(?string $comment): static
+    public function setComment(string $comment): static
     {
         $this->comment = $comment;
 
