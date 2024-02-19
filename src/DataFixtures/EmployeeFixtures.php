@@ -21,6 +21,7 @@ class EmployeeFixtures extends Fixture
             $employee->setUsername($faker->userName);
             $employee->setPassword($faker->password);
             $employee->setRoles($faker->jobTitle);
+            $manager->persist($employee);
         }
 
         $manager->flush();
