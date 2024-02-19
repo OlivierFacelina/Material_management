@@ -6,10 +6,30 @@
 
 
 <div class="list_materials_content">
-    {% for material in materials %}
         <div class="material_array">
-            <p>{{material.name}}</p>
+            <table>
+                <th>
+                    <td>Elément</td>
+                    <td>N° étiquette</td>
+                    <td>N° de série</td>
+                    <td>Disponibilité</td>
+                    <td>Emprunteur</td>
+                    <td>Nombre d'emprunt</td>
+                    <td>Commentaire</td>
+                </th>
+                {% for material in materials %}
+                <tr>
+                    <td>{{material.name}}</td>
+                    <td>{{material.serialnumber}}</td>
+                    <td>{{material.tagnumber}}</td>
+                    <td>X</td>
+                    <td>{{material.location}}</td>
+                    <td>X</td>
+                    <td>{{material.comment}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
         </div>
-    {% endfor %}
 </div>
 {% endblock %}

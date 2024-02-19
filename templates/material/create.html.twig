@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MaterialController!{% endblock %}
+
+{% block body %}
+
+    <div class="content">
+        {{ form_start(material) }}
+        {{ form_widget(material) }}
+        <button type="submit">Envoyer</button>
+        {{ form_end(material) }}
+    </div>
+
+{% endblock %}

@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240219100936 extends AbstractMigration
+final class Version20240219122030 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -22,7 +22,7 @@ final class Version20240219100936 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE borrowing (id INT AUTO_INCREMENT NOT NULL, borrow_date DATETIME NOT NULL, expected_return_date DATETIME NOT NULL, actual_return_date DATETIME NOT NULL, comment LONGTEXT DEFAULT NULL, material_id INT DEFAULT NULL, employee_id INT DEFAULT NULL, student_id INT DEFAULT NULL, manage_id INT DEFAULT NULL, training_program_id INT DEFAULT NULL, INDEX IDX_226E5897E308AC6F (material_id), INDEX IDX_226E58978C03F15C (employee_id), INDEX IDX_226E5897CB944F1A (student_id), INDEX IDX_226E5897F1AF8971 (manage_id), INDEX IDX_226E58978406BD6C (training_program_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4');
         $this->addSql('CREATE TABLE employee (id INT AUTO_INCREMENT NOT NULL, lastname VARCHAR(255) NOT NULL, firstname VARCHAR(255) NOT NULL, username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, roles VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4');
-        $this->addSql('CREATE TABLE material (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, serial_number VARCHAR(255) NOT NULL, tag_number VARCHAR(255) NOT NULL, comment VARCHAR(255) NOT NULL, location VARCHAR(255) NOT NULL, type_id INT DEFAULT NULL, INDEX IDX_7CBE7595C54C8C93 (type_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4');
+        $this->addSql('CREATE TABLE material (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, serialnumber VARCHAR(255) NOT NULL, tagnumber VARCHAR(255) NOT NULL, comment VARCHAR(255) NOT NULL, location VARCHAR(255) NOT NULL, type_id INT DEFAULT NULL, INDEX IDX_7CBE7595C54C8C93 (type_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4');
         $this->addSql('CREATE TABLE material_kind (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4');
         $this->addSql('CREATE TABLE student (id INT AUTO_INCREMENT NOT NULL, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, birthdate DATETIME NOT NULL, formation_id INT DEFAULT NULL, INDEX IDX_B723AF335200282E (formation_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4');
         $this->addSql('CREATE TABLE training_program (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, level INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4');
