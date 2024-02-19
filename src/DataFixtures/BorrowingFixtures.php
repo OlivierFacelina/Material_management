@@ -10,14 +10,29 @@ class BorrowingFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
         $faker = \Faker\Factory::create();
 
         for ($i=0; $i<20; $i++){
             $borrowing = new Borrowing();
             $borrowing->setBorrowDate($faker->dateTimeBetween);
+            $borrowing->setExpectedReturnDate($faker->dateTimeBetween);
+            $borrowing->setActualReturnDate($faker->dateTimeBetween);
+            $borrowing->setComment($faker->sentence);
+            $borrowing->setMaterialId($this->getReference('material_' . $faker->numberBetween(0,19)));
+            $borrowing->setEmployee($this->getReference('employee_' . $faker->numberBetween(0,19)));
+            $borrowing->setStudent($this->getReference('student' . $faker->numberBetween(0,19)));
+            // $borrowing->setTrainingProgram($this->getReference('training_' . $faker->numberBetween(0,19)));
+            $manager->persist($borrowing);
         }
         $manager->flush();
+    }
+
+    public function getDependencies() {
+        return [
+            // TrainingProgramFixtures::class,
+            StudentFixtures::class,
+            EmployeeFixtures::class,
+            MaterialFixtures::class
+        ];
     }
 }

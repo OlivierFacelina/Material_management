@@ -15,11 +15,11 @@
             <th>Action</th>
         </tr>
             {% for user in users %}
-            {{ dump(users.borrowings)}}
+            {# {{ dump(users.borrowings)}} #}
             <tr>
                 <th>{{ user.lastname}}</th>
                 <th>{{ user.firstname}}</th>
-                <th>{{ user.username}}</th>
+                <th>{{ user.material_id}}</th>
                 <th>{{ user.password}}</th>
                 <th>{{ user.roles}}</th>
                 <th>Consulter / Modifier</th>
