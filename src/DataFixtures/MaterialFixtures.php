@@ -15,11 +15,10 @@ class MaterialFixtures extends Fixture
         for ($i=0; $i < 20; $i++){
             $material = new Material();
             $material->setName($faker->name);
-            $material->setSerialNumber($faker->text);
-            $material->setTagNumber($faker->text);
+            $material->setSerialNumber($faker->sentence);
+            $material->setTagNumber($faker->sentence);
             $material->setComment($faker->text);
             $material->setLocation($faker->text);
-            $this->addReference('material_' . $i, $material);
             $manager->persist($material);
         }
         $manager->flush();
