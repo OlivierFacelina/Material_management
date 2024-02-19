@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Employee;
 use App\Entity\Student;
 use App\Form\EmployeeType;
+use App\Repository\EmployeeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,13 +16,14 @@ use Symfony\Component\Routing\Attribute\Route;
 class UserController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(Request $request): Response
-    {
-        $employee = new Employee;
-        $form = $this->createForm(EmployeeType::class, $employee);
-        $form->handleRequest($request);
+    public function index(EmployeeRepository $employeeRepository): Response
+    {        
+
+        // dd($currentUser);
+        // $category = $categoryRepository->find(10);
+        // dd($movies);
         return $this->render('user/index.html.twig', [
-            "form" => $form->createView()
+            'users' => $employeeRepository->findAll()
         ]);
     }
 
