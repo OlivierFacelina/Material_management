@@ -11,18 +11,25 @@
         {% block template %}
         <header>
             <nav>
-                <img src="{{asset('/images/logo_lamanu.jpg')}}" alt="">
-                <div>
-                    <a href="#">Vue d'ensemble</a>
-                </div>
-                <div>
-                    <a href="#">Emprunter / Rendre</a>
-                </div>
-                <div>
-                    <p onclick="">Matériel</p>
-                    <a href="{{path('app_material')}}">Stock</a>
-                    <a href="{{path('material_create')}}">Create</a>
-                    <a href="#">Historique</a>
+                <img src="{{asset('/images/Logo_lamanu.svg')}}" alt="">
+                <div class="link_nav" id="nav-link">
+                    <div class="overview">
+                        <a href="#">Vue d'ensemble</a>
+                    </div>
+                    <div class="borrowing">
+                        <a href="#">Emprunter / Rendre</a>
+                    </div>
+                    <div class="material" id="nav-link">
+                        <p onclick="">Matériel</p>
+                        <a href="{{path('app_material')}}">Stock</a>
+                        <a href="{{path('material_create')}}">Create</a>
+                        <a href="#">Historique</a>
+                    </div>
+                    <div class="user" id="nav-link">
+                        <p onclick="">Utilisateur</p>
+                        <a href="#">Liste</a>
+                        <a href="#">Ajout</a>
+                    </div>
                 </div>
             </nav>
         </header>
