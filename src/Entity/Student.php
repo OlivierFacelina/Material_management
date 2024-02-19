@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\StudentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +27,14 @@ class Student
 
     #[ORM\ManyToOne(inversedBy: 'students')]
     private ?TrainingProgram $formation = null;
+
+    #[ORM\OneToMany(targetEntity: Borrowing::class, mappedBy: 'student')]
+    private Collection $borrowings;
+
+    public function __construct()
+    {
+        $this->borrowings = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +85,36 @@ class Student
     public function setFormation(?TrainingProgram $formation): static
     {
         $this->formation = $formation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Borrowing>
+     */
+    public function getBorrowings(): Collection
+    {
+        return $this->borrowings;
+    }
+
+    public function addBorrowing(Borrowing $borrowing): static
+    {
+        if (!$this->borrowings->contains($borrowing)) {
+            $this->borrowings->add($borrowing);
+            $borrowing->setStudent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBorrowing(Borrowing $borrowing): static
+    {
+        if ($this->borrowings->removeElement($borrowing)) {
+            // set the owning side to null (unless already changed)
+            if ($borrowing->getStudent() === $this) {
+                $borrowing->setStudent(null);
+            }
+        }
 
         return $this;
     }

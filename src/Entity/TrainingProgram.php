@@ -24,9 +24,13 @@ class TrainingProgram
     #[ORM\OneToMany(targetEntity: Student::class, mappedBy: 'formation')]
     private Collection $students;
 
+    #[ORM\OneToMany(targetEntity: Borrowing::class, mappedBy: 'training_program')]
+    private Collection $borrowings;
+
     public function __construct()
     {
         $this->students = new ArrayCollection();
+        $this->borrowings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -82,6 +86,36 @@ class TrainingProgram
             // set the owning side to null (unless already changed)
             if ($student->getFormation() === $this) {
                 $student->setFormation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Borrowing>
+     */
+    public function getBorrowings(): Collection
+    {
+        return $this->borrowings;
+    }
+
+    public function addBorrowing(Borrowing $borrowing): static
+    {
+        if (!$this->borrowings->contains($borrowing)) {
+            $this->borrowings->add($borrowing);
+            $borrowing->setTrainingProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBorrowing(Borrowing $borrowing): static
+    {
+        if ($this->borrowings->removeElement($borrowing)) {
+            // set the owning side to null (unless already changed)
+            if ($borrowing->getTrainingProgram() === $this) {
+                $borrowing->setTrainingProgram(null);
             }
         }
 

@@ -26,6 +26,21 @@ class Borrowing
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $comment = null;
 
+    #[ORM\ManyToOne(inversedBy: 'borrowings')]
+    private ?Material $material_id = null;
+
+    #[ORM\ManyToOne(inversedBy: 'borrowings')]
+    private ?Employee $employee = null;
+
+    #[ORM\ManyToOne(inversedBy: 'borrowings')]
+    private ?Student $student = null;
+
+    #[ORM\ManyToOne(inversedBy: 'borrowings')]
+    private ?Employee $manage = null;
+
+    #[ORM\ManyToOne(inversedBy: 'borrowings')]
+    private ?TrainingProgram $training_program = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +90,66 @@ class Borrowing
     public function setComment(?string $comment): static
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getMaterialId(): ?Material
+    {
+        return $this->material_id;
+    }
+
+    public function setMaterialId(?Material $material_id): static
+    {
+        $this->material_id = $material_id;
+
+        return $this;
+    }
+
+    public function getEmployee(): ?Employee
+    {
+        return $this->employee;
+    }
+
+    public function setEmployee(?Employee $employee): static
+    {
+        $this->employee = $employee;
+
+        return $this;
+    }
+
+    public function getStudent(): ?Student
+    {
+        return $this->student;
+    }
+
+    public function setStudent(?Student $student): static
+    {
+        $this->student = $student;
+
+        return $this;
+    }
+
+    public function getManage(): ?Employee
+    {
+        return $this->manage;
+    }
+
+    public function setManage(?Employee $manage): static
+    {
+        $this->manage = $manage;
+
+        return $this;
+    }
+
+    public function getTrainingProgram(): ?TrainingProgram
+    {
+        return $this->training_program;
+    }
+
+    public function setTrainingProgram(?TrainingProgram $training_program): static
+    {
+        $this->training_program = $training_program;
 
         return $this;
     }
