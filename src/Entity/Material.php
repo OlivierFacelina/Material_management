@@ -33,6 +33,9 @@ class Material
     #[ORM\OneToMany(targetEntity: Borrowing::class, mappedBy: 'material_id')]
     private Collection $borrowings;
 
+    #[ORM\ManyToOne(inversedBy: 'materials')]
+    private ?MaterialKind $type = null;
+
     public function __construct()
     {
         $this->borrowings = new ArrayCollection();
@@ -129,6 +132,18 @@ class Material
                 $borrowing->setMaterialId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getType(): ?MaterialKind
+    {
+        return $this->type;
+    }
+
+    public function setType(?MaterialKind $type): static
+    {
+        $this->type = $type;
 
         return $this;
     }

@@ -27,7 +27,7 @@ class Borrowing
     private ?string $comment = null;
 
     #[ORM\ManyToOne(inversedBy: 'borrowings')]
-    private ?Material $material_id = null;
+    private ?Material $material = null;
 
     #[ORM\ManyToOne(inversedBy: 'borrowings')]
     private ?Employee $employee = null;
@@ -96,12 +96,12 @@ class Borrowing
 
     public function getMaterialId(): ?Material
     {
-        return $this->material_id;
+        return $this->material;
     }
 
-    public function setMaterialId(?Material $material_id): static
+    public function setMaterialId(?Material $material): static
     {
-        $this->material_id = $material_id;
+        $this->material = $material;
 
         return $this;
     }
