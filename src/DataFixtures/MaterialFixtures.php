@@ -19,7 +19,7 @@ class MaterialFixtures extends Fixture
             $material->setName($faker->name);
             $material->setSerialNumber($faker->text);
             $material->setTagNumber($faker->text);
-            $material->setComment($faker->comment);
+            $material->setComment($faker->text);
             $material->setLocation($faker->text);
             $manager->persist($material);
         }
