@@ -12,7 +12,7 @@ class EmployeeFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create('fr_FR');
 
         for ($i=0; $i < 20; $i++){
             $employee = new Employee();
