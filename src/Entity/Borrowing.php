@@ -41,9 +41,6 @@ class Borrowing
     #[ORM\ManyToOne(inversedBy: 'borrowings')]
     private ?TrainingProgram $training_program = null;
 
-    #[ORM\Column]
-    private ?bool $isActive = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -153,18 +150,6 @@ class Borrowing
     public function setTrainingProgram(?TrainingProgram $training_program): static
     {
         $this->training_program = $training_program;
-
-        return $this;
-    }
-
-    public function isIsActive(): ?bool
-    {
-        return $this->isActive;
-    }
-
-    public function setIsActive(bool $isActive): static
-    {
-        $this->isActive = $isActive;
 
         return $this;
     }

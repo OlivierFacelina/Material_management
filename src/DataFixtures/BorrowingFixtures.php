@@ -4,9 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\Borrowing;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class BorrowingFixtures extends Fixture
+class BorrowingFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
@@ -20,7 +21,7 @@ class BorrowingFixtures extends Fixture
             $borrowing->setComment($faker->sentence);
             $borrowing->setMaterialId($this->getReference('material_' . $faker->numberBetween(0,19)));
             $borrowing->setEmployee($this->getReference('employee_' . $faker->numberBetween(0,19)));
-            $borrowing->setStudent($this->getReference('student' . $faker->numberBetween(0,19)));
+            $borrowing->setStudent($this->getReference('student_' . $faker->numberBetween(0,19)));
             // $borrowing->setTrainingProgram($this->getReference('training_' . $faker->numberBetween(0,19)));
             $manager->persist($borrowing);
         }

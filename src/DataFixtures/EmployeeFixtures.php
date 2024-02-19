@@ -21,6 +21,7 @@ class EmployeeFixtures extends Fixture
             $employee->setUsername($faker->userName);
             $employee->setPassword($faker->password);
             $employee->setRoles($faker->jobTitle);
+            $employee->setIsActive(true);
             $this->addReference('employee_' . $i, $employee);
             $manager->persist($employee);
         }

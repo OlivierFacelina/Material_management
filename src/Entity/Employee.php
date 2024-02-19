@@ -33,6 +33,9 @@ class Employee
     #[ORM\OneToMany(targetEntity: Borrowing::class, mappedBy: 'employee')]
     private Collection $borrowings;
 
+    #[ORM\Column]
+    private ?bool $isActive = null;
+
     public function __construct()
     {
         $this->borrowings = new ArrayCollection();
@@ -99,6 +102,18 @@ class Employee
     public function setRoles(string $roles): static
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function isIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): static
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }
