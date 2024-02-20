@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
         {% block javascripts %}
 {% block importmap %}{{ importmap('app') }}{% endblock %}
@@ -15,20 +15,21 @@
                 <img src="{{asset('/images/Logo_lamanu.svg')}}" alt="">
                 <div class="link_nav" id="nav-link">
                     <div class="overview">
-                        <a href="#"><img src="" alt="">Vue d'ensemble</a>
+                        <a href="#"><span class="material-symbols-outlined">grid_view</span>Vue d'ensemble</a>
+                    </div>
                     <div class="borrowing">
-                        <a href="#">Emprunter / Rendre</a>
+                        <a href="#"><span class="material-symbols-outlined">move_to_inbox</span>Emprunter / Rendre</a>
                     </div>
                     <div class="material" id="nav-link">
-                        <p onclick="">Matériel</p>
-                        <a href="{{path('app_material')}}">Stock</a>
-                        <a href="{{path('material_create')}}">Create</a>
-                        <a href="#">Historique</a>
+                        <p onclick=""><span class="material-symbols-outlined">package_2</span>Matériel</p>
+                        <li><a href="{{path('app_material')}}">Stock</a></li>
+                        <li><a href="{{path('material_create')}}">Ajouter</a></li>
+                        <li><a href="#">Historique</a></li>
                     </div>
                     <div class="user" id="nav-link">
                         <p onclick="">Utilisateur</p>
-                        <a href="#">Liste</a>
-                        <a href="#">Ajout</a>
+                        <li><a href="{{path('user_index')}}">Liste</a></li>
+                        <li><a href="#">Ajout</a></li>
                     </div>
                 </div>
             </nav>

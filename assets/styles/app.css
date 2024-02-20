@@ -15,7 +15,12 @@ nav{
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    font-size: 2vh;
     
+}
+nav li{
+    list-style-type: none;
+
 }
 
 nav img{
@@ -39,4 +44,39 @@ tr:nth-child(odd) {
 
 th{
     background-color: #33048e;
+}
+
+nav a{
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+}
+.overview span{
+    width: 20%;
+    height: auto;
+    display: flex;
+}
+
+.overview{
+    margin-bottom: 3vh;
+}
+
+.borrowing{
+    margin-bottom: 3vh;    
+}
+
+.borrowing span{
+    margin-right: 2vh;
+}
+
+
+nav p{
+    color: white;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+}
+
+nav p span{
+    margin-right: 2vh;
 }
