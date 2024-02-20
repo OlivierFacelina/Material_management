@@ -18,7 +18,8 @@ class MaterialFixtures extends Fixture
             $material->setSerialNumber($faker->sentence);
             $material->setTagNumber($faker->sentence);
             $material->setComment($faker->text);
-            $material->setLocation($faker->sentence);
+            $material->setLocation($faker->text);
+            $this->addReference('material_' . $i, $material);
             $manager->persist($material);
         }
         $manager->flush();

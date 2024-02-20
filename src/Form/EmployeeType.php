@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Borrowing;
 use App\Entity\Employee;
 use App\Entity\TrainingProgram;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -39,11 +40,6 @@ class EmployeeType extends AbstractType
                     'placeholder' => "Apprenant(e)"
                 ]
             ])
-            // ->add('name', EntityType::class, [
-            //     'class' => TrainingProgram::class,
-            //     'choice_label' => 'Formation',
-            //     'multiple' => true,
-            // ])
         ;
     }
 
