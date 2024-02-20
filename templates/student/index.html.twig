@@ -8,17 +8,17 @@
     <table>
         <tr>
             <th>Nom</th>
-            <th>Prénom</th>
-            <th>Roles</th>
+            <th>Date d'anniversaire</th>
             <th>Disponibilité</th>
             <th>Action</th>
         </tr>
             {% for student in students %}
             <tr>
-                <td>{{ student.lastname}}</td>
-                <td>{{ student.firstname}}</td>
+                <td>{{ student.lastname|upper ~ ' ' ~ student.firstname}}</td>
                 <td>{{ student.birthdate.format('Y-m-d H:i:s')}}</td>
-                <td>{{ student.formation}}</td>
+                {% if student.formation == null %}
+                    <td>Pas de formation</td>
+                {% endif %}
                 <td>Consulter / Modifier</td>
             </tr>
             {% endfor %}
