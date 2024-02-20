@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des employés{% endblock %}
+
+{% block body %}
+<div class="users">
+    <h3>Barre de recherche</h3>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Roles</th>
+            <th>Disponibilité</th>
+            <th>Action</th>
+        </tr>
+            {% for employee in employees %}
+            {# {{ dump(users.borrowings)}} #}
+            <tr>
+                <td>{{ employee.lastname}}</td>
+                <td>{{ employee.firstname}}</td>
+                <td>{{ employee.roles}}</td>
+                {% if employee.isActive == 1 %}
+                <td>Actif</td>
+                {% else %}
+                <td>Inactif</td>
+                {% endif %}
+                <td>Consulter / Modifier</td>
+            </tr>
+            {% endfor %}
+    </table>
+</div>
+{% endblock %}
