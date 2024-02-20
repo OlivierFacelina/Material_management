@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+<div class="header_page">
+    <h2>Liste des utilisateurs Campus Amiens</h1>
+</div>
+<div class="users">
+    <table>
+        <tr>
+            <th class="user_th1">Nom</th>
+            <th class="user_th2">Prénom</th>
+            <th class="user_th3">Fonction</th>
+            <th class="user_th4">Formation</th>
+            <th class="user_th5">Activité</th>
+            <th class="user_th6">Action</th>
+        </tr>
+            {% for user in users %}
+            {# {{ dump(users.borrowings)}} #}
+            <tr>
+                <td class="user_td1">{{ user.lastname}}</td>
+                <td class="user_td2"><p>{{ user.firstname}}</p></td>
+                <td class="user_td3"><p>{{ user.username}}</p></td>
+                <td class="user_td4"><p>{{ user.password}}</p></td>
+                <td class="user_td5"><p>{{ user.roles}}</p></td>
+                <td><p>Consulter / Modifier</p></td>
+            </tr>
+            {% endfor %}
+    </table>
+</div>
+{% endblock %}

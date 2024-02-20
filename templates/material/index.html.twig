@@ -4,28 +4,30 @@
 
 {% block body %}
 
-
+<div class="header_page">
+    <h2>Détail du stock Campus Amiens</h1>
+</div>
 <div class="list_materials_content">
         <div class="material_array">
             <table>
                 <tr>
-                    <th>Elément</th>
-                    <th>N° étiquette</th>
-                    <th>N° de série</th>
-                    <th>Disponibilité</th>
-                    <th>Emprunteur</th>
-                    <th>Nombre d'emprunt</th>
-                    <th>Commentaire</th>
+                    <th class="th1">Elément</th>
+                    <th class="th2">N° étiquette</th>
+                    <th class="th3">N° de série</th>
+                    <th class="th4">Disponibilité</th>
+                    <th class="th5">Emprunteur</th>
+                    <th class="th6">Nombre d'emprunt</th>
+                    <th class="th7">Commentaire</th>
                 </tr>
                 {% for material in materials %}
                 <tr>
-                    <td>{{material.name}}</td>
-                    <td>{{material.serialnumber}}</td>
-                    <td>{{material.tagnumber}}</td>
-                    <td>X</td>
-                    <td>{{material.location}}</td>
-                    <td>X</td>
-                    <td>{{material.comment}}</td>
+                    <td><p>{{material.name}}</p></td>
+                    <td><p>{{material.serialnumber}}</p></td>
+                    <td><p>{{material.tagnumber}}</p></td>
+                    <td><p>X</p></td>
+                    <td><p>{{material.location}}</p></td>
+                    <td><p>X</p></td>
+                    <td><p>{{material.comment}}</p></td>
                 </tr>
                 {% endfor %}
 
