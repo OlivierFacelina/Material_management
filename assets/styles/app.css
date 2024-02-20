@@ -32,3 +32,11 @@ header{
 #nav-link{
     
 }
+
+tr:nth-child(odd) {
+    background-color: #D6EEEE;
+  }
+
+th{
+    background-color: #33048e;
+}

@@ -8,15 +8,15 @@
 <div class="list_materials_content">
         <div class="material_array">
             <table>
-                <th>
-                    <td>Elément</td>
-                    <td>N° étiquette</td>
-                    <td>N° de série</td>
-                    <td>Disponibilité</td>
-                    <td>Emprunteur</td>
-                    <td>Nombre d'emprunt</td>
-                    <td>Commentaire</td>
-                </th>
+                <tr>
+                    <th>Elément</th>
+                    <th>N° étiquette</th>
+                    <th>N° de série</th>
+                    <th>Disponibilité</th>
+                    <th>Emprunteur</th>
+                    <th>Nombre d'emprunt</th>
+                    <th>Commentaire</th>
+                </tr>
                 {% for material in materials %}
                 <tr>
                     <td>{{material.name}}</td>
