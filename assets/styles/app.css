@@ -1,9 +1,22 @@
 body {
-    margin: 0;
+    margin: 0;  
     display: flex;
     flex-direction: row;
+    font-family: Arial, Helvetica, sans-serif;
+}
+main{
+    width: 100%;
 }
 
+.header_page{
+    display: flex;
+    justify-content: center;
+    color: #33048e;
+    height: 7vh;
+    border-bottom: 2px solid;
+    border-color: #33048e;
+    margin-bottom: 3vh;
+}
 a{
     text-decoration: none;
     color: white;
@@ -15,12 +28,14 @@ nav{
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    font-size: 2vh;
-    
+    font-size: 1.8vh;
 }
 nav li{
     list-style-type: none;
-
+    padding-left: 5vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+    font-weight: lighter;
 }
 
 nav img{
@@ -34,16 +49,64 @@ nav img{
 header{
     width: 18%;
 }
-#nav-link{
-    
+
+table{
+    display: flex;
+    justify-content: center;    
+    border-collapse: collapse;
 }
 
 tr:nth-child(odd) {
-    background-color: #D6EEEE;
+    background-color: #EBEAF3;
   }
 
 th{
     background-color: #33048e;
+    color: white;
+    margin: 0;
+    height: 5vh;
+}
+
+.th1{
+    width: 22vh;
+    border-left: 2px solid;
+    border-left-color:#33048e;
+}
+.th2{
+    width: 15vh;
+    
+}
+.th3{
+    width: 15vh;
+}
+.th4{
+    width: 15vh;
+   
+}
+.th5{
+    width: 20vh;
+    
+}
+.th6{
+    width: 15vh;
+}
+.th7{
+    width: 30vh;
+    border-right: 2px solid;
+    border-right-color:#33048e;
+}
+
+td{
+    color: #33048e;
+    height: 5vh;
+    border-left: 2px solid;
+    border-right: 2px solid;
+    border-color: #33048e;
+}
+
+td p{
+    display: flex;
+    justify-content: center;
 }
 
 nav a{
@@ -79,4 +142,34 @@ nav p{
 
 nav p span{
     margin-right: 2vh;
+}
+
+.user_th1{
+    width: 28vh;
+    border-left: 2px solid;
+    border-left-color:#33048e;
+}
+.user_th2{
+    width: 20vh;
+}
+.user_th3{
+    width: 15vh;
+}
+.user_th4{
+    width: 30vh;
+}
+.user_th5{
+    width: 18vh;
+}
+.user_th6{
+    width: 18vh;
+    border-right: 2px solid;
+    border-right-color:#33048e;
+}
+.user_td1{
+    padding-left: 2vh;
+}
+.user_td2 p{
+    display: flex;
+    justify-content: center;
 }

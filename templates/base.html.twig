@@ -27,7 +27,7 @@
                         <li><a href="#">Historique</a></li>
                     </div>
                     <div class="user" id="nav-link">
-                        <p onclick="">Utilisateur</p>
+                        <p onclick=""><span class="material-symbols-outlined">supervised_user_circle</span>Utilisateur</p>
                         <li><a href="{{path('user_index')}}">Liste</a></li>
                         <li><a href="#">Ajout</a></li>
                     </div>
@@ -37,7 +37,10 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}
-        {% endblock %}
+        
+        <main>
+            {% block body %}
+            {% endblock %}
+        </main>
     </body>
 </html>
