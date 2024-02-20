@@ -6,9 +6,11 @@ use App\Repository\EmployeeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: EmployeeRepository::class)]
-class Employee
+class Employee implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -94,9 +96,11 @@ class Employee
         return $this;
     }
 
-    public function getRoles(): ?string
+    public function getRoles(): array
     {
-        return $this->roles;
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+        return array_unique($roles);
     }
 
     public function setRoles(string $roles): static
@@ -146,5 +150,22 @@ class Employee
         }
 
         return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+
+    public function getUserIdentifier(): string
+    {
+         return (string) $this->username;
+     }
+
+    /** 
+     * @see UserInterface
+    */
+
+    public function eraseCredentials(): void {
+        
     }
 }
