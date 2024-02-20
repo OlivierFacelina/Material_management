@@ -3,28 +3,30 @@
 {% block title %}Liste des employés{% endblock %}
 
 {% block body %}
+<div class="header_page">
+    <h2>Liste des utilisateurs Campus Amiens</h2>
+</div>
 <div class="users">
-    <h3>Barre de recherche</h3>
     <table>
         <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Roles</th>
-            <th>Disponibilité</th>
-            <th>Action</th>
+            <th class="user_th1">Nom</th>
+            <th class="user_th2">Prénom</th>
+            <th class="user_th3">Roles</th>
+            <th class="user_th4">Disponibilité</th>
+            <th class="user_th5">Action</th>
         </tr>
             {% for employee in employees %}
             {# {{ dump(users.borrowings)}} #}
             <tr>
-                <td>{{ employee.lastname}}</td>
-                <td>{{ employee.firstname}}</td>
-                <td>{{ employee.roles}}</td>
+                <td class="user_td1"><p>{{ employee.lastname}}</p></td>
+                <td class="user_td2"><p>{{ employee.firstname}}</p></td>
+                <td class="user_td3"><p>{{ employee.firstname}}</p></td>
                 {% if employee.isActive == 1 %}
-                <td>Actif</td>
+                <td class="user_td4"><p>Actif</p></td>
                 {% else %}
-                <td>Inactif</td>
+                <td class="user_td4"><p>Inactif</p></td>
                 {% endif %}
-                <td>Consulter / Modifier</td>
+                <td class="user_td5"><p>Consulter / Modifier</p></td>
             </tr>
             {% endfor %}
     </table>
