@@ -11,16 +11,15 @@
         <tr>
             <th class="user_th1">Nom</th>
             <th class="user_th2">Prénom</th>
-            <th class="user_th3">Roles</th>
+            <th class="user_th3">Pseudo</th>
             <th class="user_th4">Disponibilité</th>
             <th class="user_th5">Action</th>
         </tr>
             {% for employee in employees %}
-            {# {{ dump(users.borrowings)}} #}
             <tr>
                 <td class="user_td1"><p>{{ employee.lastname}}</p></td>
                 <td class="user_td2"><p>{{ employee.firstname}}</p></td>
-                <td class="user_td3"><p>{{ employee.firstname}}</p></td>
+                <td class="user_td3"><p>{{ employee.username}}</p></td>
                 {% if employee.isActive == 1 %}
                 <td class="user_td4"><p>Actif</p></td>
                 {% else %}
