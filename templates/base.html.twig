@@ -28,8 +28,16 @@
                     </div>
                     <div class="user" id="nav-link">
                         <p onclick="">Utilisateur</p>
-                        <li><a href="{{path('employee_index')}}">Liste</a></li>
-                        <li><a href="{{path('employee_create')}}">Ajout</a></li>
+                        <ul>
+                            Employés
+                            <li><a href="{{path('employee_index')}}">Liste</a></li>
+                            <li><a href="{{path('employee_create')}}">Ajout</a></li>
+                        </ul>
+                        <ul>
+                            Etudiants
+                            <li><a href="{{path('student_index')}}">Liste</a></li>
+                            <li><a href="{{path('student_create')}}">Ajout</a></li>
+                        </ul>
                     </div>
                 </div>
             </nav>
