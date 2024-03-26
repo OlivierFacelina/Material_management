@@ -19,7 +19,10 @@
                 {% if student.formation == null %}
                     <td>Pas de formation</td>
                 {% endif %}
-                <td>Consulter / Modifier</td>
+                <td class="user_td5">
+                    <img src="{{asset('images/eye.png')}}" class="consult_user"> 
+                    <img src="{{asset('images/profile.png')}}" class="edit_user">
+                </td>
             </tr>
             {% endfor %}
     </table>

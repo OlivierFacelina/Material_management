@@ -144,6 +144,8 @@ nav p span{
     margin-right: 2vh;
 }
 
+/* ------------------ USERS ----------------------- */
+
 .user_th1{
     width: 28vh;
     border-left: 2px solid;
@@ -172,4 +174,89 @@ nav p span{
 .user_td2 p{
     display: flex;
     justify-content: center;
+}
+
+/* styles.css */
+
+.user-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-form-group {
+    margin-bottom: 20px;
+}
+
+.user-form-inline {
+    display: flex;
+    justify-content: space-between;
+    gap: 3vh;
+}
+
+.user-form-item {
+    flex-grow: 1;
+}
+
+.user-label {
+    display: block;
+    font-weight: bold;
+}
+
+.user-input,
+.user-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.user-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-end; /* Aligner le bouton à droite */
+}
+
+.user-button:hover {
+    background-color: #0056b3;
+}
+
+.create_user, .view_user {
+    margin-top: 10vh; 
+    margin-left: 10vh;
+    color: #33048e;
+    width: 45%;
+}
+
+.consult_user, .edit_user {
+    width: 30px;
+    cursor: pointer;
+}
+
+.user_td5 {
+    text-align: center;
+}
+
+/* ---------- VIEW USER ------------- */
+
+.user-view-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-view-item input {
+    margin-top: 1vh;
+    border: 2px solid #33048e;
+    background-color: #EBEAF3;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.user-view-inline {
+    display: flex;
+    gap: 3vh;
 }

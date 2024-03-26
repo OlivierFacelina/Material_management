@@ -3,14 +3,42 @@
 {% block title %}Mon profil{% endblock %}
 
 {% block body %}
+<div class="header_page">
+    <h2>Ajouter d'un utilisateur Campus Amiens</h1>
+</div>
+<section class="view_user">
     <div class="container">
-        <h1 class="text-center">Modifier un film</h1>
+        <h1 class="text-center">Fiche profil</h1>
         <div class="row justify-content-center">
-            <div class="col-md-5">
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
-                {{ form_end(form) }}
+            <div class="col-md-6">
+                <div class="user-form-container">
+                        <div class="user-form-group">
+                            <div class="user-view-inline">
+                                <div class="user-view-item">
+                                    <label for="firstname">Prénom</label>
+                                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}">
+                                </div>
+                                <div class="user-view-item">
+                                    <label for="lastname">Nom</label>
+                                    <input type="text" id="lastname" name="lastname" value="{{ employee.lastname }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-form-group">
+                            <div class="user-view-item">
+                                <label for="status">Statut</label>
+                                <input type="text" id="status" name="status" value="{% if employee.isActive == "1" %}
+                                {{ 'Actif' }}
+                            {% else %}
+                                {{ 'Inactif' }}
+                            {% endif %}">
+                            </div>
+                            
+                        </div>
+                    <button class="user-button" type="submit">Envoyer</button>
+                </div>
             </div>
         </div>
     </div>
+</section>
 {% endblock %}

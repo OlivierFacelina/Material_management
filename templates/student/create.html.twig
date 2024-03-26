@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un utilisateur{% endblock %}
+
+{% block body %}
+<div class="header_page">
+    <h2>Ajouter d'un utilisateur Campus Amiens</h1>
+</div>
+<section class="create_user">
+    <div class="container">
+        <h1 class="text-center">Ajouter un utilisateur</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="user-form-container">
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'user-form'}}) }}
+                        <div class="user-form-group">
+                            <div class="user-form-inline">
+                                <div class="user-form-item">
+                                    {{ form_label(form.firstname, 'Prénom', {'class': 'user-label'}) }}<br>
+                                    {{ form_widget(form.firstname, {'attr': {'class': 'user-input'}}) }}
+                                </div>
+                                <div class="user-form-item">
+                                    {{ form_label(form.lastname, 'Nom', {'class': 'user-label'}) }}<br>
+                                    {{ form_widget(form.lastname, {'attr': {'class': 'user-input'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-form-group">
+                            {{ form_label(form.birthdate, 'Date de naissance', {'class': 'user-label'}) }}<br>
+                            {{ form_widget(form.birthdate) }}
+                        </div>
+                    {{ form_end(form) }}
+                    <button class="user-button" type="submit">Envoyer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

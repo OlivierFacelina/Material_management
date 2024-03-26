@@ -19,7 +19,7 @@ class EmployeeFixtures extends Fixture
             $employee->setLastname($faker->lastName);
             $employee->setFirstname($faker->firstName);
             $employee->setUsername($faker->userName);
-            $employee->setPassword($faker->password);
+            $employee->setPassword('password');
             $employee->setRoles($faker->jobTitle);
             $employee->setIsActive(true);
             $this->addReference('employee_' . $i, $employee);

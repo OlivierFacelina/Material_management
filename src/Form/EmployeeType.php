@@ -8,7 +8,10 @@ use App\Entity\TrainingProgram;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EmployeeType extends AbstractType
@@ -32,13 +35,18 @@ class EmployeeType extends AbstractType
                     'placeholder' => "DOE"
                 ]
             ])
-            ->add('roles', TextType::class, [
-                'label' => "Fonction",
+            ->add('roles', ChoiceType::class, [
+                'label' => "Roles",
                 'required' => true,
+                'multiple' => true, // Permettre la sélection de plusieurs valeurs
+                'choices' => [
+                    'Directeur' => 'Directeur',
+                    'Cadre' => 'Cadre',
+                    // Ajoutez d'autres options si nécessaire
+                ],
                 'attr' => [
-                    'class' => 'form-control', 
-                    'placeholder' => "Apprenant(e)"
-                ]
+                    'class' => 'form-control',
+                ], 
             ])
         ;
     }
