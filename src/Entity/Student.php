@@ -22,7 +22,7 @@ class Student
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
 
-    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $birthdate = null;
 
     #[ORM\ManyToOne(inversedBy: 'students')]
