@@ -2,22 +2,22 @@
 
 {% block title %}Hello MaterialController!{% endblock %}
 
-{% block body %}
+{% block titlePage %} {% endblock %}
+
+{% block body %} 
 
 <div class="header_page">
-    <h2>Détail du stock Campus Amiens</h1>
+    <h2>Liste des matériels Campus Amiens</h1>
 </div>
 <div class="list_materials_content">
-        <div class="material_array">
             <table>
                 <tr>
-                    <th class="th1">Elément</th>
-                    <th class="th2">N° étiquette</th>
-                    <th class="th3">N° de série</th>
-                    <th class="th4">Disponibilité</th>
-                    <th class="th5">Emprunteur</th>
-                    <th class="th6">Nombre d'emprunt</th>
-                    <th class="th7">Commentaire</th>
+                    <th>Elément</th>
+                    <th>N° étiquette</th>
+                    <th>N° de série</th>
+                    <th>Disponibilité</th>
+                    <th>Emprunteur</th>
+                    <th>Commentaire</th>
                 </tr>
                 {% for material in materials %}
                 <tr>
@@ -26,12 +26,10 @@
                     <td><p>{{material.tagnumber}}</p></td>
                     <td><p>X</p></td>
                     <td><p>{{material.location}}</p></td>
-                    <td><p>X</p></td>
                     <td><p>{{material.comment}}</p></td>
                 </tr>
                 {% endfor %}
 
             </table>
-        </div>
 </div>
 {% endblock %}
