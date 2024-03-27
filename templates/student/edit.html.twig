@@ -27,26 +27,8 @@
                         </div>
                         <div class="user-form-group user-edit">
                             <div class="user-form-item">
-                                {{ form_label(form.roles, 'Rôles', {'class': 'user-label'}) }}<br>
-                                {% for role in form.roles %}
-                                    <div class="role-checkbox">
-                                        {{ form_widget(role, {'attr': {'class': 'user-checkbox'}}) }}
-                                        {{ form_label(role, role.vars.label|capitalize, {'label_attr': {'class': 'role-label'}}) }}
-                                    </div>
-                                    <br>
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <div class="user-form-group">
-                            <div class="user-form-inline">
-                                <div class="user-form-item">
-                                    {{ form_label(form.username, 'Username', {'class': 'user-label'}) }}<br>
-                                    {{ form_widget(form.username, {'attr': {'class': 'user-input'}}) }}
-                                </div>
-                                <div class="user-form-item">
-                                    {{ form_label(form.password, 'Password', {'class': 'user-label'}) }}<br>
-                                    {{ form_widget(form.password, {'attr': {'class': 'user-input', 'type': 'password'}}) }}
-                                </div>
+                                {{ form_label(form.birthdate, 'Date de naissance', {'class': 'user-label'}) }}<br>
+                                {{ form_widget(form.birthdate, {'attr': {'class': 'user-input'}}) }}
                             </div>
                         </div>
                     <button class="user-button" type="submit">Envoyer</button>
@@ -57,3 +39,4 @@
     </div>
 </section>
 {% endblock %}
+﻿

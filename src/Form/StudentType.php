@@ -33,8 +33,9 @@ class StudentType extends AbstractType
             ->add('birthdate', DateType::class, [
                 'label' => "Date de naissance",
                 'widget' => 'choice',
+                'years' => range(date('Y')-60, date('Y')-16),
                 'input'  => 'datetime_immutable',
-                'format' => 'dd-MM-yyyy', 
+                'format' => 'yyyy-MM-dd', 
                 'attr' => [
                     'class' => 'form-control', 
                     'placeholder' => "YYYY-MM-DD"
