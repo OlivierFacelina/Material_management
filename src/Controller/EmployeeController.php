@@ -15,6 +15,18 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/employee', name: 'employee_')]
 class EmployeeController extends AbstractController
 {
+
+    #[Route('/search', name: 'search')]
+    public function search(Request $request, EmployeeRepository $employeeRepository): Response
+    {
+        $query = $request->query->get('query');
+        $employees = $employeeRepository->searchEmployees($query);
+
+        return $this->render('employee/index.html.twig', [
+            'employees' => $employees,
+        ]);
+    }
+
     #[Route('/', name: 'index')]
     public function index(EmployeeRepository $employeeRepository): Response
     {        

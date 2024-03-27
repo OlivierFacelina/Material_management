@@ -165,6 +165,24 @@ nav p span{
 
 /* ------------------ USERS ----------------------- */
 
+/* Searchbar */
+.input-field-search {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.button-search {
+    background-color: #33048e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
 .user_th1{
     width: 28vh;
     border-left: 2px solid;
@@ -195,8 +213,6 @@ td:nth-child(1){
 .content {
     padding-top: 2.5%;
 }
-
-/* styles.css */
 
 .user-form-container {
     display: flex;

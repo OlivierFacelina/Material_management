@@ -3,9 +3,15 @@
 {% block title %}Liste des étudiants{% endblock %}
 
 {% block body %}
+<div class="header_page">
+    <h2>Liste des étudiants Campus Amiens</h2>
+</div>
 <div class="users">
     <div class="button_pathcreate">
-        <!-- Recherche -->
+        <form method="GET" action="{{ path('student_search') }}">
+            <input type="text" name="query" placeholder="Rechercher..." class="input-field-search">
+            <button type="submit" class="button-search">Rechercher</button>
+        </form>
     </div>
     <table>
         <tr>
@@ -14,23 +20,21 @@
             <th>Disponibilité</th>
             <th>Action</th>
         </tr>
-            {% for student in students %}
-            <tr>
-                <td>{{ student.lastname|upper ~ ' ' ~ student.firstname}}</td>
-                <td>{{ student.birthdate.format('Y-m-d')}}</td>
-                {% if student.formation == null %}
-                    <td>Pas de formation</td>
-                {% endif %}
-                <td class="user_td5">
-                    <a href="{{path('student_show', {id: student.id})}}" class="btn btn-primary">
-                        <img src="{{asset('images/eye.png')}}" class="consult_user"> 
-                    </a>
-                    <a href="{{path('student_edit', {id: student.id})}}" class="btn btn-primary">
-                        <img src="{{asset('images/profile.png')}}" class="edit_user">
-                    </a>
-                </td>
-            </tr>
-            {% endfor %}
+        {% for student in students %}
+        <tr>
+            <td>{{ student.lastname|upper ~ ' ' ~ student.firstname}}</td>
+            <td>{{ student.birthdate|date('Y-m-d') }}</td>
+            <td>{{ student.formation is null ? 'Pas de formation' : 'Disponible' }}</td>
+            <td class="user_td5">
+                <a href="{{ path('student_show', {id: student.id}) }}" class="btn btn-primary">
+                    <img src="{{ asset('images/eye.png') }}" class="consult_user"> 
+                </a>
+                <a href="{{ path('student_edit', {id: student.id}) }}" class="btn btn-primary">
+                    <img src="{{ asset('images/profile.png') }}" class="edit_user">
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
     </table>
 </div>
 {% endblock %}

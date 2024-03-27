@@ -26,6 +26,17 @@ class EmployeeRepository extends ServiceEntityRepository implements PasswordUpgr
         parent::__construct($registry, Employee::class);
     }
 
+    public function searchEmployees($query)
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.firstname LIKE :query')
+            ->orWhere('e.lastname LIKE :query')
+            ->orWhere('e.username LIKE :query')
+            ->setParameter('query', "%$query%")
+            ->getQuery()
+            ->getResult();
+    }
+
     /**
      * Used to upgrade (rehash) the user's password automatically over time.
      */

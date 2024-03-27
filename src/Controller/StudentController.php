@@ -14,6 +14,18 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/student', name: 'student_')]
 class StudentController extends AbstractController
 {
+
+    #[Route('/search', name: 'search')]
+    public function search(Request $request, StudentRepository $studentRepository): Response
+    {
+        $query = $request->query->get('query');
+        $students = $studentRepository->searchStudents($query);
+
+        return $this->render('student/index.html.twig', [
+            'students' => $students,
+        ]);
+    }
+
     #[Route('/', name: 'index')]
     public function index(StudentRepository $studentRepository): Response
     {        
