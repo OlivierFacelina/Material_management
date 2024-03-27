@@ -15,7 +15,7 @@
             {% for student in students %}
             <tr>
                 <td>{{ student.lastname|upper ~ ' ' ~ student.firstname}}</td>
-                <td>{{ student.birthdate.format('Y-m-d H:i:s')}}</td>
+                <td>{{ student.birthdate.format('Y-m-d')}}</td>
                 {% if student.formation == null %}
                     <td>Pas de formation</td>
                 {% endif %}
