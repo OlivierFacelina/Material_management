@@ -4,11 +4,48 @@
 
 {% block body %}
 
-    <div class="content">
-        {{ form_start(material) }}
-        {{ form_widget(material) }}
-        <button type="submit">Envoyer</button>
-        {{ form_end(material) }}
+<div class="header_page">
+    <h2>Ajouter du matériel Campus Amiens</h1>
+</div>
+<div class="content">
+    <p class="content_title">Ajouter du matériel</p>
+    {{ form_start(material) }}
+    
+    <div class="form-group">
+        {{ form_label(material.name) }}
+        {{ form_widget(material.name, {'attr': {'class': 'form-control-name'}}) }}
     </div>
+
+    <div class="form-group">
+        {{ form_label(material.serialnumber) }}
+        {{ form_widget(material.serialnumber, {'attr': {'class': 'form-control-serialnumber'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(material.tagnumber) }}
+        {{ form_widget(material.tagnumber, {'attr': {'class': 'form-control-tagnumber'}}) }}
+    </div>
+
+
+    <div class="form-group">
+        {{ form_label(material.location) }}
+        {{ form_widget(material.location, {'attr': {'class': 'form-control-location'}}) }}
+        
+    </div>
+
+    <div class="form-group">
+        {{ form_label(material.type) }}
+        {{ form_widget(material.type, {'attr': {'class': 'form-control-type'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(material.comment) }}
+        {{ form_widget(material.comment, {'attr': {'class': 'form-control-comment'}}) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+
+    {{ form_end(material) }}
+</div>
 
 {% endblock %}
