@@ -74,7 +74,18 @@
     <body>
         
         <main>
-                {% block titlePage %}  {% endblock %}   
+            <div class="content-container">
+                {% block titlePage %}  {% endblock %}  
+                {% if app.user %}
+                <div class="user-profile">
+                    <img src="{{ asset('images/account.png') }}" alt="User Profile Image">
+                    <h6>{{ app.user.username }}</h6>
+                     <form action="{{ path('app_logout') }}" method="post">
+                        <button type="submit" class="logout-button">Déconnexion</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
             {% block body %}
             {% endblock %}
         </main>
