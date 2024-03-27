@@ -167,30 +167,42 @@ nav p span{
 /* Version tablette */
 @media only screen and (max-width: 768px) {
     nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40%;
+        z-index: 1000; 
         font-size: 1.5vh;
     }
-    nav img {
-        width: 70%;
-        margin-bottom: 8vh;
-    }
-    header {
-        width: 25%;
+
+    main {
+        margin-top: 40vh; 
     }
 }
 
 /* Version mobile */
 @media only screen and (max-width: 480px) {
     nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 35%;
+        z-index: 1000; 
         font-size: 1.2vh;
     }
-    nav img {
-        width: 60%;
-        margin-bottom: 6vh;
+
+    main {
+        margin-top: 37vh; 
     }
-    header {
-        width: 30%;
+
+    .link_nav {
+        margin-top: -5vh;
+        display: block;
     }
 }
+
 
 /* ------------------ USERS ----------------------- */
 
@@ -210,6 +222,10 @@ nav p span{
     padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
+}
+
+.search-student, .search-employee {
+    margin-bottom: 5vh;
 }
 
 .user_th1{
@@ -379,14 +395,13 @@ td:nth-child(1){
     gap: 3vh;
 }
 
-/* Réduire la taille de l'input "statut" */
 #status {
-    width: 25%; /* Ajustez la largeur selon votre préférence */
-    padding: 8px; /* Ajustez le rembourrage selon votre préférence */
+    width: 25%; 
+    padding: 8px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: 14px; /* Réduire la taille de la police */
+    font-size: 14px; 
 }
 
 /* -------------- EDIT USER ------------ */
@@ -475,6 +490,39 @@ td:nth-child(1){
     color: #33048e;
 }
 
+/* Version tablette */
+@media only screen and (max-width: 768px) {
+    .content_title {
+        font-size: 1.5rem;
+    }
+    .form-control-name,
+    .form-control-serialnumber,
+    .form-control-tagnumber,
+    .form-control-location,
+    .form-control-type,
+    .form-control-comment {
+        width: 60%;
+    }
+    .button_pathcreate {
+        width: 100%;
+    }
+}
+
+/* Version mobile */
+@media only screen and (max-width: 480px) {
+    .content_title {
+        font-size: 1.2rem;
+    }
+    .form-control-name,
+    .form-control-serialnumber,
+    .form-control-tagnumber,
+    .form-control-location,
+    .form-control-type,
+    .form-control-comment {
+        width: 80%;
+    }
+}
+
 /* ---------------- CONSULT USER ----------------- */
 
 
@@ -485,6 +533,7 @@ td:nth-child(1){
     border-radius: 4px;
     box-sizing: border-box; 
 }
+
 /* ------------ LOGIN ------------------ */
 
 .login-form {
@@ -609,4 +658,53 @@ td:nth-child(1){
     text-decoration: underline;
 }
 
+/* Version tablette */
+@media only screen and (max-width: 768px) {
 
+    .login-form {
+        width: 60%;
+        margin-left: 0;
+        padding-left: 0;
+        left: 0;
+    }
+
+    .user-profile {
+        margin: 2vh 0 0 0;
+    }
+
+    h1, .form_group, .form-check{
+        padding-left: 2vh;
+    }
+
+    .reset-content {
+        margin-left: 0;
+    }
+
+    .login-form input[type="text"], .login-form input[type="password"] {
+        width: calc(100% - 20px); 
+    }
+}
+
+/* Version mobile */
+@media only screen and (max-width: 480px) {
+
+    .login-form {
+        width: 80%;
+    }
+
+    .user-profile {
+        margin: 2vh 0 0 0;
+    }
+
+    h1, .form_group, .form-check{
+        padding-left: 2vh;
+    }
+
+    .reset-content {
+        margin-left: 0;
+    }
+
+    .login-form input[type="text"], .login-form input[type="password"] {
+        width: calc(100% - 20px);
+    }
+}
