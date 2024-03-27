@@ -1,3 +1,5 @@
+/*-------------------- GENERAL --------------------- */
+
 body {
     margin: 0;  
     display: flex;
@@ -22,8 +24,6 @@ main{
     overflow-y: scroll;
 }
 
-
-
 .header_page{
     display: flex;
     justify-content: center;
@@ -33,6 +33,7 @@ main{
     border-color: #33048e;
     margin-bottom: 3vh;
 }
+
 a{
     text-decoration: none;
     color: white;
@@ -63,8 +64,8 @@ nav img{
     height: auto;
     display: flex;
     margin-bottom: 10vh;
-    
 }
+
 header{
     width: 18%;
 }
@@ -163,6 +164,34 @@ nav p span{
     margin-right: 2vh;
 }
 
+/* Version tablette */
+@media only screen and (max-width: 768px) {
+    nav {
+        font-size: 1.5vh;
+    }
+    nav img {
+        width: 70%;
+        margin-bottom: 8vh;
+    }
+    header {
+        width: 25%;
+    }
+}
+
+/* Version mobile */
+@media only screen and (max-width: 480px) {
+    nav {
+        font-size: 1.2vh;
+    }
+    nav img {
+        width: 60%;
+        margin-bottom: 6vh;
+    }
+    header {
+        width: 30%;
+    }
+}
+
 /* ------------------ USERS ----------------------- */
 
 /* Searchbar */
@@ -254,7 +283,7 @@ td:nth-child(1){
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    align-self: flex-end; /* Aligner le bouton à droite */
+    align-self: flex-end; 
 }
 
 .user-button:hover {
@@ -281,6 +310,53 @@ td:nth-child(1){
     display: inline-block;
     vertical-align: middle; 
     margin-left: 5px; 
+}
+
+/* Version tablette */
+@media only screen and (max-width: 768px) {
+    .input-field-search {
+        width: 60%;
+    }
+    .button-search {
+        padding: 8px 16px;
+    }
+    .user_th1,
+    .user_th2,
+    .user_th3,
+    .user_th4,
+    .user_th5,
+    .user_th6 {
+        width: auto;
+    }
+    .content {
+        padding-top: 2%;
+    }
+    .create_user,
+    .view_user {
+        margin-left: 5vh;
+        width: 80%;
+    }
+}
+
+/* Version mobile */
+@media only screen and (max-width: 480px) {
+    .input-field-search {
+        width: 50%;
+    }
+    .button-search {
+        padding: 6px 12px;
+    }
+    .user-form-inline {
+        flex-direction: column;
+    }
+    .user-form-item {
+        width: 100%;
+    }
+    .create_user,
+    .view_user {
+        margin-left: 3vh;
+        width: 90%;
+    }
 }
 
 /* ---------- VIEW USER ------------- */
