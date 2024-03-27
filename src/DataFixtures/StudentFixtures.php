@@ -18,7 +18,7 @@ class StudentFixtures extends Fixture
             $student = new Student();
             $student->setFirstname($faker->firstName);
             $student->setLastname($faker->lastName);
-            $student->setBirthdate($faker->dateTimeThisCentury);
+            $student->setBirthdate($faker->dateTimeBetween($startDate = '-25 years', $endDate = '-10 years', $timezone = null));
             $this->addReference('student_' . $i, $student);
             $manager->persist($student);
         }
