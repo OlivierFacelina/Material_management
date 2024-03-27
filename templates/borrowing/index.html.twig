@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BorrowingController!
+{% endblock %}
+
+{% block body %}
+<div class="header_page">
+    <h2>Liste des emprunts Campus Amiens</h1>
+</div>
+
+<div class="button_pathcreate">
+    <a class="pathcreate"href="{{ path('borrowing_create') }}"><p>Ajouter un emprunt</p></a>
+</div>
+<div class="list_materials_content">
+	<table>
+			<tr>
+				<th>Matériel</th>
+				<th>Numéro d'étiquette</th>
+				<th>Date d'emprunt</th>
+				<th>Date de retour prévu</th>
+				<th>Date de restitution</th>
+				<th>Emprunteur</th>
+				<th>Commentaires</th>
+				<th>Rendre le matériel</th>
+			</tr>
+            <div class="list_materials_content_tr">
+			{% for borrowing in borrowings %}
+				<tr>
+					<td>{{ borrowing.getMaterialId.name }}</td>
+					<td>{{ borrowing.getMaterialId.serialnumber }}</td>
+					<td>
+						{% if borrowing.getBorrowDate() is not null and borrowing.getActualReturnDate() is not null %}
+							-
+						{% else %}
+							{{ borrowing.getBorrowDate().format("Y-m-d H:i:s") }}
+						{% endif %}
+					</td>
+					<td>
+						{% if borrowing.getBorrowDate() is not null and borrowing.getActualReturnDate() is not null %}
+							-
+						{% else %}
+							{{ borrowing.getExpectedReturnDate().format("Y-m-d H:i:s") }}
+						{% endif %}
+					</td>
+					<td>
+						{% if borrowing.getActualReturnDate() is not null %}
+							Disponible
+						{% else %}
+							Non Disponible
+						{% endif %}
+					</td>
+					<td>
+						{% if borrowing.employee is not null %}
+							{{ borrowing.employee.firstname }}
+							{{ borrowing.employee.lastname }}
+						{% elseif borrowing.student is not null %}
+							{{ borrowing.student.firstname }}
+							{{ borrowing.student.lastname }}
+						{% else %}
+							Aucun emprunteur spécifié
+						{% endif %}
+					</td>
+					<td>{{ borrowing.comment }}</td>
+					<td>
+						{% if borrowing.getBorrowDate() is not null and borrowing.getActualReturnDate() is not null %}
+							<img src="{{ asset('../images/check.png') }}" alt="...">
+						{% else %}
+							<a href="{{ path('borrowing_edit', { id: borrowing.id }) }}">Rendre</a>
+						{% endif %}
+					</td>
+				</tr>
+			{% endfor %}
+	</table>
+</div>
+{% endblock %}

@@ -28,6 +28,7 @@
         </script>
         {% endblock %}
         <header>
+        {% block navbar %}
             <nav>
                 <img src="{{asset('/images/Logo_lamanu.svg')}}" alt="">
                 <div class="link_nav" id="nav-link">
@@ -35,7 +36,7 @@
                         <a href="#"><span class="material-symbols-outlined">grid_view</span>Vue d'ensemble</a>
                     </div>
                     <div class="borrowing">
-                        <a href="#"><span class="material-symbols-outlined">move_to_inbox</span>Emprunter / Rendre</a>
+                        <a href="{{path('app_borrowing')}}"><span class="material-symbols-outlined">move_to_inbox</span>Emprunter / Rendre</a>
                     </div>
                     <div class="material">
                         <p onclick="toggleList('materialList', 'materialArrow')" style="cursor: pointer;"><span class="material-symbols-outlined">package_2</span>Matériel
@@ -46,7 +47,7 @@
                         <ul id="materialList" style="display: none;">
                             <li><a href="{{path('app_material')}}">Stock</a></li>
                             <li><a href="{{path('material_create')}}">Ajouter</a></li>
-                            <li><a href="#">Historique</a></li>
+
                         </ul>
                     </div>
                     <div class="user" id="nav-link">
@@ -66,6 +67,7 @@
                     </div>
                 </div>
             </nav>
+            {% endblock %}
         </header>
         {% endblock %}
     </head>
