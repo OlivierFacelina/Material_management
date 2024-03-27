@@ -5,9 +5,17 @@ namespace App\DataFixtures;
 use App\Entity\Employee;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class EmployeeFixtures extends Fixture
 {
+
+    public function __construct(
+        private UserPasswordHasherInterface $passwordHasher
+    ){
+
+    }
+
     public function load(ObjectManager $manager): void
     {
         // $product = new Product();
@@ -21,7 +29,8 @@ class EmployeeFixtures extends Fixture
             $employee->setLastname($faker->lastName);
             $employee->setFirstname($faker->firstName);
             $employee->setUsername($faker->userName);
-            $employee->setPassword('password');
+            $hashedPassword = $this->passwordHasher->hashPassword($employee, 'password' );
+            $employee->setPassword($hashedPassword);
             $randomRole = $roles[array_rand($roles)];
             $employee->setRoles([$randomRole]);
             $employee->setIsActive(true);
