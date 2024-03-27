@@ -1,1 +1,39 @@
-YES
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil{% endblock %}
+
+{% block body %}
+<div class="header_page">
+    <h2>Ajouter d'un utilisateur Campus Amiens</h1>
+</div>
+<section class="view_user">
+    <div class="container">
+        <h1 class="text-center">Fiche profil</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="user-view-container">
+                        <div class="user-form-group">
+                            <div class="user-view-inline">
+                                <div class="user-view-item">
+                                    <label for="firstname">Prénom</label>
+                                    <input type="text" id="firstname" name="firstname" value="{{ student.firstname }}">
+                                </div>
+                                <div class="user-view-item">
+                                    <label for="lastname">Nom</label>
+                                    <input type="text" id="lastname" name="lastname" value="{{ student.lastname }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-form-group">
+                            <div class="user-view-item">
+                                <label for="birthdate">Date de naissance</label>
+                                <input type="date" id="birthdate" class="birthdate" name="birthdate" value="{{ formattedBirthdate }}">
+                            </div>                  
+                        </div>
+                    <button class="user-button" type="submit">Envoyer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

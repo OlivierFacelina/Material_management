@@ -382,7 +382,26 @@ td:nth-child(1){
 .pathcreate p{
     color: #33048e;
 }
+
+/* ---------------- CONSULT USER ----------------- */
+
+
+.user-view-item .birthdate {
+    width: 50%; 
+    padding: 8px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
 /* ------------ LOGIN ------------------ */
+
+.login-form {
+    margin-left: 5vh;
+}
+
+.form-check {
+    margin: 5vh 0 5vh 0; 
+}
 
 .content-container {
     display: flex;
@@ -412,3 +431,17 @@ td:nth-child(1){
 .logout-button:hover {
     background-color: #0056b3;
 }
+
+.reset-content {
+    margin-left: 5vh;
+}
+
+.reset-explaination {
+    margin-top: 2vh;
+}
+
+.reset-psw {
+    color: #33048e;
+    margin-top: 5vh;
+}
+

@@ -17,9 +17,6 @@ class StudentController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(StudentRepository $studentRepository): Response
     {        
-        // dd($currentUser);
-        // $category = $categoryRepository->find(10);
-        // dd($movies);
         return $this->render('student/index.html.twig', [
             'students' => $studentRepository->findAll()
         ]);
@@ -31,14 +28,12 @@ class StudentController extends AbstractController
         $student = new Student;
         $form = $this->createForm(StudentType::class, $student);
         $form->handleRequest($request);
-        // $movie = $entityManager->getRepository(Movie::class)->findOneBy(['id' => $id]);
         
         if($form->isSubmitted() && $form->isValid()) {
             $em->persist($student);
             $em->flush();
             return $this->redirectToRoute('student_index');
         }
-        // dd($movie->getActors()->toArray());
         # On se rend dans le dossier template en utilisant this, puisqu'on l'a étendu
         return $this->render('student/create.html.twig', [
             "form" => $form->createView()
@@ -56,14 +51,12 @@ class StudentController extends AbstractController
     public function edit(Request $request, EntityManagerInterface $em, Student $student) {
         $form = $this->createForm(StudentType::class, $student);
         $form->handleRequest($request);
-        // $movie = $entityManager->getRepository(Movie::class)->findOneBy(['id' => $id]);
         
         if($form->isSubmitted() && $form->isValid()) {
             $em->persist($student);
             $em->flush();
             return $this->redirectToRoute('student_index');
         }
-        // dd($movie->getActors()->toArray());
         # On se rend dans le dossier template en utilisant this, puisqu'on l'a étendu
         return $this->render('student/edit.html.twig', [
             "form" => $form->createView()
@@ -74,15 +67,15 @@ class StudentController extends AbstractController
 
     public function show(Student $student) {
 
-        // $movie = $entityManager->getRepository(Movie::class)->findOneBy(['id' => $id]);
+        $formattedBirthdate = $student->getBirthdate()->format('Y-m-d');
 
         if(is_null($student)) {
             return $this->redirectToRoute('student_index');
         }
-        // dd($movie->getActors()->toArray());
         # On se rend dans le dossier template en utilisant this, puisqu'on l'a étendu
         return $this->render('student/show.html.twig', [
-            "student" => $student
+            "student" => $student,
+            'formattedBirthdate' => $formattedBirthdate,
         ]);
     }
 }

@@ -25,12 +25,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="user-form-group">
-                            {{ form_label(form.birthdate, 'Date de naissance', {'class': 'user-label'}) }}<br>
-                            {{ form_widget(form.birthdate) }}
+                        <div class="user-form-group user-edit">
+                            <div class="user-form-item">
+                                {{ form_label(form.birthdate, 'Date de naissance', {'class': 'user-label'}) }}<br>
+                                {{ form_widget(form.birthdate, {'attr': {'class': 'user-input'}}) }}
+                            </div>
                         </div>
-                    {{ form_end(form) }}
                     <button class="user-button" type="submit">Envoyer</button>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>
