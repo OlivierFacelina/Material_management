@@ -10,6 +10,22 @@
 {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
         {% block template %}
+        {% block jsnavbar %}
+        <script>
+            function toggleList(listId, arrowId) {
+                var list = document.getElementById(listId);
+                var arrow = document.getElementById(arrowId);
+                
+                if (list.style.display === "none") {
+                    list.style.display = "block";
+                    arrow.style.transform = "rotate(180deg)";
+                } else {
+                    list.style.display = "none";
+                    arrow.style.transform = "rotate(0deg)";
+                }
+            }
+        </script>
+        {% endblock %}
         <header>
             <nav>
                 <img src="{{asset('/images/Logo_lamanu.svg')}}" alt="">
@@ -20,16 +36,28 @@
                     <div class="borrowing">
                         <a href="#"><span class="material-symbols-outlined">move_to_inbox</span>Emprunter / Rendre</a>
                     </div>
-                    <div class="material" id="nav-link">
-                        <p onclick=""><span class="material-symbols-outlined">package_2</span>Matériel</p>
-                        <li><a href="{{path('app_material')}}">Stock</a></li>
-                        <li><a href="{{path('material_create')}}">Ajouter</a></li>
-                        <li><a href="#">Historique</a></li>
+                    <div class="material">
+                        <p onclick="toggleList('materialList', 'materialArrow')" style="cursor: pointer;"><span class="material-symbols-outlined">package_2</span>Matériel
+                            <svg class="arrow" id="materialArrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M7 10l5 5 5-5z" fill="#ffffff"/>
+                            </svg>
+                        </p>
+                        <ul id="materialList" style="display: none;">
+                            <li><a href="{{path('app_material')}}">Stock</a></li>
+                            <li><a href="{{path('material_create')}}">Ajouter</a></li>
+                            <li><a href="#">Historique</a></li>
+                        </ul>
                     </div>
-                    <div class="user" id="nav-link">
-                        <p onclick=""><span class="material-symbols-outlined">supervised_user_circle</span>Utilisateur</p>
-                        <li><a href="{{path('user_index')}}">Liste</a></li>
-                        <li><a href="#">Ajout</a></li>
+                    <div class="user">
+                        <p onclick="toggleList('userList', 'userArrow')" style="cursor: pointer;"><span class="material-symbols-outlined">supervised_user_circle</span>Utilisateur
+                            <svg class="arrow" id="userArrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M7 10l5 5 5-5z" fill="#ffffff"/>
+                            </svg>
+                        </p>
+                        <ul id="userList" style="display: none;">
+                            <li><a href="{{path('user_index')}}">Liste</a></li>
+                            <li><a href="#">Ajout</a></li>
+                        </ul>
                     </div>
                 </div>
             </nav>
@@ -39,6 +67,7 @@
     <body>
         
         <main>
+                {% block titlePage %}  {% endblock %}   
             {% block body %}
             {% endblock %}
         </main>
