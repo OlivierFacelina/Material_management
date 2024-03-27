@@ -20,8 +20,12 @@
                     <td>Pas de formation</td>
                 {% endif %}
                 <td class="user_td5">
-                    <img src="{{asset('images/eye.png')}}" class="consult_user"> 
-                    <img src="{{asset('images/profile.png')}}" class="edit_user">
+                    <a href="{{path('student_show', {id: student.id})}}" class="btn btn-primary">
+                        <img src="{{asset('images/eye.png')}}" class="consult_user"> 
+                    </a>
+                    <a href="{{path('student_edit', {id: student.id})}}" class="btn btn-primary">
+                        <img src="{{asset('images/profile.png')}}" class="edit_user">
+                    </a>
                 </td>
             </tr>
             {% endfor %}

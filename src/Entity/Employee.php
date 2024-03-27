@@ -30,7 +30,7 @@ class Employee implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $roles = null;
+    private ?array $roles = [];
 
     #[ORM\OneToMany(targetEntity: Borrowing::class, mappedBy: 'employee')]
     private Collection $borrowings;
@@ -103,7 +103,7 @@ class Employee implements UserInterface, PasswordAuthenticatedUserInterface
         return array_unique($roles);
     }
 
-    public function setRoles(string $roles): static
+    public function setRoles(array $roles): static
     {
         $this->roles = $roles;
 

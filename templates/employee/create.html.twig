@@ -26,11 +26,29 @@
                             </div>
                         </div>
                         <div class="user-form-group">
-                            {{ form_label(form.roles, 'Fonction', {'class': 'user-label'}) }}<br>
-                            {{ form_widget(form.roles, {'attr': {'class': 'user-select'}}) }}
+                            {{ form_label(form.lastname, 'Rôles', {'class': 'user-label'}) }}<br>
+                            {% for role in form.roles %}
+                                <div class="role-checkbox">
+                                    {{ form_widget(role, {'attr': {'class': 'user-checkbox'}}) }}
+                                    {{ form_label(role, role.vars.label|capitalize, {'label_attr': {'class': 'role-label'}}) }}
+                                </div>
+                                <br>
+                            {% endfor %}
                         </div>
-                    {{ form_end(form) }}
+                        <div class="user-form-group">
+                            <div class="user-form-inline">
+                                <div class="user-form-item">
+                                    {{ form_label(form.username, 'Username', {'class': 'user-label'}) }}<br>
+                                    {{ form_widget(form.username, {'attr': {'class': 'user-input'}}) }}
+                                </div>
+                                <div class="user-form-item">
+                                    {{ form_label(form.password, 'Password', {'class': 'user-label'}) }}<br>
+                                    {{ form_widget(form.password, {'attr': {'class': 'user-input', 'type': 'password'}}) }}
+                                </div>
+                            </div>
+                        </div>
                     <button class="user-button" type="submit">Envoyer</button>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>

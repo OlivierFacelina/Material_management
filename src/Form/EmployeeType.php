@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -19,6 +20,22 @@ class EmployeeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('username', TextType::class, [
+                'label' => "Nom d'utilisateur",
+                'required' => true,
+                'attr' => [
+                    'class' => 'form-control', 
+                    'placeholder' => "Nom d'utilisateur"
+                ]
+            ])
+            ->add('password', PasswordType::class, [
+                'label' => "Mot de passe",
+                'required' => true,
+                'attr' => [
+                    'class' => 'form-control', 
+                    'placeholder' => "Mot de passe"
+                ]
+            ])
             ->add('firstname', TextType::class, [
                 'label' => "Prénom",
                 'required' => true,
@@ -36,17 +53,23 @@ class EmployeeType extends AbstractType
                 ]
             ])
             ->add('roles', ChoiceType::class, [
-                'label' => "Roles",
+                'label' => "Rôles",
                 'required' => true,
-                'multiple' => true, // Permettre la sélection de plusieurs valeurs
+                'multiple' => true,
+                'expanded' => true,
                 'choices' => [
-                    'Directeur' => 'Directeur',
-                    'Cadre' => 'Cadre',
-                    // Ajoutez d'autres options si nécessaire
+                    'Directeur' => 'ROLE_DIRECTOR',
+                    'Cadre' => 'ROLE_MANAGER',
+                    'Utilisateur' => 'ROLE_USER',
                 ],
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-check-input',
                 ], 
+                'choice_attr' => [
+                    'Directeur' => ['class' => 'role-label'],
+                    'Cadre' => ['class' => 'role-label'],
+                    'Utilisateur' => ['class' => 'role-label'],
+                ],
             ])
         ;
     }

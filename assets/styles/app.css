@@ -241,6 +241,12 @@ nav p span{
     text-align: center;
 }
 
+.role-label {
+    display: inline-block;
+    vertical-align: middle; 
+    margin-left: 5px; 
+}
+
 /* ---------- VIEW USER ------------- */
 
 .user-view-item {
@@ -259,4 +265,25 @@ nav p span{
 .user-view-inline {
     display: flex;
     gap: 3vh;
+}
+
+/* Réduire la taille de l'input "statut" */
+#status {
+    width: 25%; /* Ajustez la largeur selon votre préférence */
+    padding: 8px; /* Ajustez le rembourrage selon votre préférence */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px; /* Réduire la taille de la police */
+}
+
+/* -------------- EDIT USER ------------ */
+
+.user-edit {
+    display: flex;
+    flex-direction: column;
+}
+
+.role-checkbox {
+    margin-top: 2vh;
 }

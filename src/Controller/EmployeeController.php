@@ -60,7 +60,7 @@ class EmployeeController extends AbstractController
         // $movie = $entityManager->getRepository(Movie::class)->findOneBy(['id' => $id]);
         
         if($form->isSubmitted() && $form->isValid()) {
-            $em->persist($employee);
+            // $em->persist($employee);
             $em->flush();
             return $this->redirectToRoute('employee_index');
         }

@@ -13,7 +13,8 @@
             <th class="user_th2">Prénom</th>
             <th class="user_th3">Pseudo</th>
             <th class="user_th4">Disponibilité</th>
-            <th class="user_th5">Action</th>
+            <th class="user_th5">Roles</th>
+            <th class="user_th6">Action</th>
         </tr>
             {% for employee in employees %}
             <tr>
@@ -26,10 +27,19 @@
                 <td class="user_td4"><p>Inactif</p></td>
                 {% endif %}
                 <td class="user_td5">
+                    <p>
+                        {% for role in employee.roles %}
+                        {{ role}}
+                        {% endfor %}
+                    </p>
+                </td>
+                <td class="user_td5">
                     <a href="{{path('employee_show', {id: employee.id})}}" class="btn btn-primary">
                         <img src="{{asset('images/eye.png')}}" class="consult_user">
                     </a>
-                    <img src="{{asset('images/profile.png')}}" class="edit_user">
+                    <a href="{{path('employee_edit', {id: employee.id})}}" class="btn btn-primary">
+                        <img src="{{asset('images/profile.png')}}" class="edit_user">
+                    </a>
                 </td>
             </tr>
             {% endfor %}
