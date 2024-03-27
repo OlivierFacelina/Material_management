@@ -22,6 +22,8 @@ main{
     overflow-y: scroll;
 }
 
+
+
 .header_page{
     display: flex;
     justify-content: center;
@@ -120,6 +122,9 @@ td{
 td p{
     display: flex;
     justify-content: center;
+}
+td a{
+    color: #33048e;
 }
 
 nav a{
@@ -361,3 +366,20 @@ td:nth-child(1){
   button[type="submit"] {
     border-radius: 8px;
   }
+
+.button_pathcreate{
+    display: flex;
+    justify-content: center;
+}
+.pathcreate{
+    width: 15%;
+    height: 4.5%;
+    display: flex;
+    justify-content: center;
+    border-radius: 2.5vh;
+    border: 1.5px solid #33048e;
+    margin-bottom: 2%;
+}
+.pathcreate p{
+    color: #33048e;
+}

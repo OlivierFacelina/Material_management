@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BorrowingController!
+{% endblock %}
+
+{% block body %}
+<div class="header_page">
+    <h2>Créer un emprunt Campus Amiens</h1>
+</div>
+	<div class="content">
+    <p class="content_title">
+        Créer un emprunt
+    </p>
+		{{ form_start(borrowing_create) }}
+		    <div class="form-group">
+                {{ form_label(borrowing_create.material_id) }}
+                {{ form_widget(borrowing_create.material_id, {'attr': {'class': 'form-control-name'}}) }}
+            </div>
+		    <div class="form-group">
+                {{ form_label(borrowing_create.employee) }}
+                {{ form_widget(borrowing_create.employee, {'attr': {'class': 'form-control-name'}}) }}
+            </div>
+		    <div class="form-group">
+                {{ form_label(borrowing_create.borrow_date) }}
+                {{ form_widget(borrowing_create.borrow_date, {'attr': {'class': 'form-control-name'}}) }}
+            </div>
+		    <div class="form-group">
+                {{ form_label(borrowing_create.expected_return_date) }}
+                {{ form_widget(borrowing_create.expected_return_date, {'attr': {'class': 'form-control-name'}}) }}
+            </div>
+		    <div class="form-group">
+                {{ form_label(borrowing_create.comment) }}
+                {{ form_widget(borrowing_create.comment, {'attr': {'class': 'form-control-name'}}) }}
+            </div>            
+		<button type="submit" class="borrowing_create_button">Ajouter</button>
+		{{ form_end(borrowing_create) }}
+	</div>
+
+{% endblock %}
