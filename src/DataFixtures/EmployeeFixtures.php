@@ -14,13 +14,16 @@ class EmployeeFixtures extends Fixture
         // $manager->persist($product);
         $faker = \Faker\Factory::create('fr_FR');
 
+        $roles = ['ROLE_EMPLOYEE', 'ROLE_DIRECTOR', 'ROLE_MANAGER'];
+
         for ($i=0; $i < 20; $i++){
             $employee = new Employee();
             $employee->setLastname($faker->lastName);
             $employee->setFirstname($faker->firstName);
             $employee->setUsername($faker->userName);
-            $employee->setPassword($faker->password);
-            $employee->setRoles($faker->jobTitle);
+            $employee->setPassword('password');
+            $randomRole = $roles[array_rand($roles)];
+            $employee->setRoles([$randomRole]);
             $employee->setIsActive(true);
             $this->addReference('employee_' . $i, $employee);
             $manager->persist($employee);

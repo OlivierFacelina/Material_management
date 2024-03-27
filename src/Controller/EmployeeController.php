@@ -12,18 +12,17 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/user', name: 'user_')]
-class UserController extends AbstractController
+#[Route('/employee', name: 'employee_')]
+class EmployeeController extends AbstractController
 {
     #[Route('/', name: 'index')]
     public function index(EmployeeRepository $employeeRepository): Response
     {        
-
         // dd($currentUser);
         // $category = $categoryRepository->find(10);
         // dd($movies);
-        return $this->render('user/index.html.twig', [
-            'users' => $employeeRepository->findAll()
+        return $this->render('employee/index.html.twig', [
+            'employees' => $employeeRepository->findAll()
         ]);
     }
 
@@ -38,11 +37,11 @@ class UserController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $em->persist($employee);
             $em->flush();
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('employee_index');
         }
         // dd($movie->getActors()->toArray());
         # On se rend dans le dossier template en utilisant this, puisqu'on l'a étendu
-        return $this->render('user/create.html.twig', [
+        return $this->render('employee/create.html.twig', [
             "form" => $form->createView()
         ]);
     }
@@ -51,7 +50,7 @@ class UserController extends AbstractController
     public function delete(Employee $employee, EntityManagerInterface $em) {
         $em->remove($employee);
         $em->flush();
-        return $this->redirectToRoute('user_index');
+        return $this->redirectToRoute('employee_index');
     }
 
     #[Route('/edit/{id}', name: 'edit')]
@@ -61,13 +60,13 @@ class UserController extends AbstractController
         // $movie = $entityManager->getRepository(Movie::class)->findOneBy(['id' => $id]);
         
         if($form->isSubmitted() && $form->isValid()) {
-            $em->persist($employee);
+            // $em->persist($employee);
             $em->flush();
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('employee_index');
         }
         // dd($movie->getActors()->toArray());
         # On se rend dans le dossier template en utilisant this, puisqu'on l'a étendu
-        return $this->render('user/edit.html.twig', [
+        return $this->render('employee/edit.html.twig', [
             "form" => $form->createView()
         ]);
     }
@@ -79,11 +78,11 @@ class UserController extends AbstractController
         // $movie = $entityManager->getRepository(Movie::class)->findOneBy(['id' => $id]);
 
         if(is_null($employee)) {
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('employee_index');
         }
         // dd($movie->getActors()->toArray());
         # On se rend dans le dossier template en utilisant this, puisqu'on l'a étendu
-        return $this->render('user/show.html.twig', [
+        return $this->render('employee/show.html.twig', [
             "employee" => $employee
         ]);
     }

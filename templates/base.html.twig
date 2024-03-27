@@ -8,6 +8,7 @@
 
         {% block javascripts %}
 {% block importmap %}{{ importmap('app') }}{% endblock %}
+
         {% endblock %}
         {% block template %}
         {% block jsnavbar %}
@@ -48,15 +49,21 @@
                             <li><a href="#">Historique</a></li>
                         </ul>
                     </div>
-                    <div class="user">
-                        <p onclick="toggleList('userList', 'userArrow')" style="cursor: pointer;"><span class="material-symbols-outlined">supervised_user_circle</span>Utilisateur
+                    <div class="user" id="nav-link">
+                                                <p onclick="toggleList('userList', 'userArrow')" style="cursor: pointer;"><span class="material-symbols-outlined">supervised_user_circle</span>Utilisateur
                             <svg class="arrow" id="userArrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                                 <path d="M7 10l5 5 5-5z" fill="#ffffff"/>
                             </svg>
                         </p>
-                        <ul id="userList" style="display: none;">
-                            <li><a href="{{path('user_index')}}">Liste</a></li>
-                            <li><a href="#">Ajout</a></li>
+                        <ul>
+                            Employés
+                            <li><a href="{{path('employee_index')}}">Liste</a></li>
+                            <li><a href="{{path('employee_create')}}">Ajout</a></li>
+                        </ul>
+                        <ul>
+                            Etudiants
+                            <li><a href="{{path('student_index')}}">Liste</a></li>
+                            <li><a href="{{path('student_create')}}">Ajout</a></li>
                         </ul>
                     </div>
                 </div>
