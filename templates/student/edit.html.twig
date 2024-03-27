@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un employé{% endblock %}
+
+{% block body %}
+<div class="header_page">
+    <h2>Modifier un utilisateur (employé) Campus Amiens</h1>
+</div>
+<section class="create_user">
+    <div class="container">
+        <h1 class="text-center">Modifier un employé</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="user-form-container">
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'user-form'}}) }}
+                        <div class="user-form-group">
+                            <div class="user-form-inline">
+                                <div class="user-form-item">
+                                    {{ form_label(form.firstname, 'Prénom', {'class': 'user-label'}) }}<br>
+                                    {{ form_widget(form.firstname, {'attr': {'class': 'user-input'}}) }}
+                                </div>
+                                <div class="user-form-item">
+                                    {{ form_label(form.lastname, 'Nom', {'class': 'user-label'}) }}<br>
+                                    {{ form_widget(form.lastname, {'attr': {'class': 'user-input'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-form-group user-edit">
+                            <div class="user-form-item">
+                                {{ form_label(form.birthdate, 'Date de naissance', {'class': 'user-label'}) }}<br>
+                                {{ form_widget(form.birthdate, {'attr': {'class': 'user-input'}}) }}
+                            </div>
+                        </div>
+                    <button class="user-button" type="submit">Envoyer</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+﻿

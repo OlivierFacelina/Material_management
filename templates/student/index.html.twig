@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des étudiants{% endblock %}
+
+{% block body %}
+<div class="users">
+    <h3>Barre de recherche</h3>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Date d'anniversaire</th>
+            <th>Disponibilité</th>
+            <th>Action</th>
+        </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.lastname|upper ~ ' ' ~ student.firstname}}</td>
+                <td>{{ student.birthdate.format('Y-m-d H:i:s')}}</td>
+                {% if student.formation == null %}
+                    <td>Pas de formation</td>
+                {% endif %}
+                <td class="user_td5">
+                    <a href="{{path('student_show', {id: student.id})}}" class="btn btn-primary">
+                        <img src="{{asset('images/eye.png')}}" class="consult_user"> 
+                    </a>
+                    <a href="{{path('student_edit', {id: student.id})}}" class="btn btn-primary">
+                        <img src="{{asset('images/profile.png')}}" class="edit_user">
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+    </table>
+</div>
+{% endblock %}

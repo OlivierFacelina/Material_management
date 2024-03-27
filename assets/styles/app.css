@@ -158,6 +158,31 @@ nav p span{
     margin-right: 2vh;
 }
 
+/* ------------------ USERS ----------------------- */
+
+.user_th1{
+    width: 28vh;
+    border-left: 2px solid;
+    border-left-color:#33048e;
+}
+.user_th2{
+    width: 20vh;
+}
+.user_th3{
+    width: 15vh;
+}
+.user_th4{
+    width: 30vh;
+}
+.user_th5{
+    width: 18vh;
+}
+.user_th6{
+    width: 18vh;
+    border-right: 2px solid;
+    border-right-color:#33048e;
+}
+
 td:nth-child(1){
     padding-left: 2vh;
 }
@@ -165,6 +190,119 @@ td:nth-child(1){
 .content {
     padding-top: 2.5%;
 }
+
+/* styles.css */
+
+.user-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-form-group {
+    margin-bottom: 20px;
+}
+
+.user-form-inline {
+    display: flex;
+    justify-content: space-between;
+    gap: 3vh;
+}
+
+.user-form-item {
+    flex-grow: 1;
+}
+
+.user-label {
+    display: block;
+    font-weight: bold;
+}
+
+.user-input,
+.user-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.user-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-end; /* Aligner le bouton à droite */
+}
+
+.user-button:hover {
+    background-color: #0056b3;
+}
+
+.create_user, .view_user {
+    margin-top: 10vh; 
+    margin-left: 10vh;
+    color: #33048e;
+    width: 45%;
+}
+
+.consult_user, .edit_user {
+    width: 30px;
+    cursor: pointer;
+}
+
+.user_td5 {
+    text-align: center;
+}
+
+.role-label {
+    display: inline-block;
+    vertical-align: middle; 
+    margin-left: 5px; 
+}
+
+/* ---------- VIEW USER ------------- */
+
+.user-view-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-view-item input {
+    margin-top: 1vh;
+    border: 2px solid #33048e;
+    background-color: #EBEAF3;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.user-view-inline {
+    display: flex;
+    gap: 3vh;
+}
+
+/* Réduire la taille de l'input "statut" */
+#status {
+    width: 25%; /* Ajustez la largeur selon votre préférence */
+    padding: 8px; /* Ajustez le rembourrage selon votre préférence */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px; /* Réduire la taille de la police */
+}
+
+/* -------------- EDIT USER ------------ */
+
+.user-edit {
+    display: flex;
+    flex-direction: column;
+}
+
+.role-checkbox {
+    margin-top: 2vh;
+}
+
 .content_title {
     font-size: 2rem;
     font-weight: bold;
