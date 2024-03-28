@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BorrowingController!
+{% endblock %}
+
+{% block body %}
+	<div class="header_page">
+		<h2>Accueil du site Campus Amiens</h1>
+	</div>
+
+	<div class="header_page2">
+		<h2>Bienvenue sur le site Material Mangement du Campus Amiens</h1>
+	</div>
+
+	<div class="conteneur">
+		<div class="element">
+			<h1>Nombre d'emprunts:
+				{{ numberborrowing }}</h1>
+		</div>
+		<div class="element">
+			<h1>Nombre de type de matériels:
+				{{ numbermaterialking }}</h1>
+		</div>
+		<div class="element">
+			<h1>Nombre des materiels:
+				{{ numbermaterial }}</h1>
+		</div>
+	</div>
+
+	<div class="conteneur">
+		<div class="element">
+			<h1>Nombre d'utilisateurs:
+				{{ numberusers }}</h1>
+		</div>
+		<div class="element">
+			<h1>Nombre d'employés:
+				{{ numberemployee }}</h1>
+		</div>
+		<div class="element">
+			<h1>Nombre d'étudiants:
+				{{ numberstudent }}</h1>
+		</div>
+	</div>
+
+	<h1 class="header_page2">Tableau des fonctionnalités</h1>
+	<table>
+		<tr>
+			<th>Fonctionnalités</th>
+			<th>Administrateur</th>
+			<th>Enseignant</th>
+			<th>Assistant de scolarité</th>
+			<th>Directrice</th>
+		</tr>
+		<tr>
+			<td>Gestion des utilisateurs</td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox"></td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox"></td>
+		</tr>
+		<tr>
+			<td>Connexion / Déconnexion</td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox" checked></td>
+		</tr>
+		<tr>
+			<td>Gestion du stock de matériel</td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox"></td>
+			<td><input type="checkbox"></td>
+			<td><input type="checkbox" checked></td>
+		</tr>
+		<tr>
+			<td>Historique des emprunts</td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox"></td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox"></td>
+		</tr>
+		<tr>
+			<td>Gestion des emprunteurs</td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox"></td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox"></td>
+		</tr>
+		<tr>
+			<td>Gestion des classes</td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox"></td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox"></td>
+		</tr>
+		<tr>
+			<td>Tableau de bord</td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox"></td>
+			<td><input type="checkbox" checked></td>
+			<td><input type="checkbox"></td>
+		</tr>
+	</table>
+{% endblock %}
