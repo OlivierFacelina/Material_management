@@ -1,94 +1,113 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
 
-        {% block javascripts %}
-{% block importmap %}{{ importmap('app') }}{% endblock %}
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
 
-        {% endblock %}
-        {% block template %}
-        {% block jsnavbar %}
-        <script>
-            function toggleList(listId, arrowId) {
-                var list = document.getElementById(listId);
-                var arrow = document.getElementById(arrowId);
-                
-                if (list.style.display === "none") {
-                    list.style.display = "block";
-                    arrow.style.transform = "rotate(180deg)";
-                } else {
-                    list.style.display = "none";
-                    arrow.style.transform = "rotate(0deg)";
-                }
-            }
-        </script>
-        {% endblock %}
-        <header>
-        {% block navbar %}
-            <nav>
-                <img src="{{asset('/images/Logo_lamanu.svg')}}" alt="">
-                <div class="link_nav" id="nav-link">
-                    <div class="overview">
-                        <a href="#"><span class="material-symbols-outlined">grid_view</span>Vue d'ensemble</a>
-                    </div>
-                    <div class="borrowing">
-                        <a href="{{path('app_borrowing')}}"><span class="material-symbols-outlined">move_to_inbox</span>Emprunter / Rendre</a>
-                    </div>
-                    <div class="material">
-                        <p onclick="toggleList('materialList', 'materialArrow')" style="cursor: pointer;"><span class="material-symbols-outlined">package_2</span>Matériel
-                            <svg class="arrow" id="materialArrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                <path d="M7 10l5 5 5-5z" fill="#ffffff"/>
-                            </svg>
-                        </p>
-                        <ul id="materialList" style="display: none;">
-                            <li><a href="{{path('app_material')}}">Stock</a></li>
-                            <li><a href="{{path('material_create')}}">Ajouter</a></li>
+		{% endblock %}
+		{% block template %}
+			{% block jsnavbar %}
+				<script>
+					function toggleList(listId, arrowId) {
+var list = document.getElementById(listId);
+var arrow = document.getElementById(arrowId);
 
-                        </ul>
-                    </div>
-                    <div class="user" id="nav-link">
-                        <p onclick="toggleList('userList', 'userArrow')" style="cursor: pointer;"><span class="material-symbols-outlined">supervised_user_circle</span>Utilisateur
-                            <svg class="arrow" id="userArrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                <path d="M7 10l5 5 5-5z" fill="#ffffff"/>
-                            </svg>
-                        </p>
-                        <ul id="userList" style="display: none;">
-                            <p class="title-list">Employés</p>
-                            <li><a href="{{path('employee_index')}}">Liste</a></li>
-                            <li><a href="{{path('employee_create')}}">Ajout</a></li>
-                            <p class="title-list">Etudiants</p>
-                            <li><a href="{{path('student_index')}}">Liste</a></li>
-                            <li><a href="{{path('student_create')}}">Ajout</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            {% endblock %}
-        </header>
-        {% endblock %}
-    </head>
-    <body>
-        
-        <main>
-            <div class="content-container">
-                {% block titlePage %}  {% endblock %}  
-                {% if app.user %}
-                <div class="user-profile">
-                    <img src="{{ asset('images/account.png') }}" alt="User Profile Image">
-                    <h6>{{ app.user.username }}</h6>
-                     <form action="{{ path('app_logout') }}" method="post">
-                        <button type="submit" class="logout-button">Déconnexion</button>
-                    </form>
-                </div>
-                {% endif %}
-            </div>
-            {% block body %}
-            {% endblock %}
-        </main>
-    </body>
+if (list.style.display === "none") {
+list.style.display = "block";
+arrow.style.transform = "rotate(180deg)";
+} else {
+list.style.display = "none";
+arrow.style.transform = "rotate(0deg)";
+}
+}
+				</script>
+			{% endblock %}
+			<header>
+				{% block navbar %}
+					<nav>
+						<img src="{{asset('/images/Logo_lamanu.svg')}}" alt="">
+						<div class="link_nav" id="nav-link">
+							<div class="overview">
+								<a href="{{path('app_index')}}">
+									<span class="material-symbols-outlined">grid_view</span>Vue d'ensemble</a>
+							</div>
+							<div class="borrowing">
+								<a href="{{path('app_borrowing')}}">
+									<span class="material-symbols-outlined">move_to_inbox</span>Emprunter / Rendre</a>
+							</div>
+							<div class="material">
+								<p onclick="toggleList('materialList', 'materialArrow')" style="cursor: pointer;">
+									<span class="material-symbols-outlined">package_2</span>Matériel
+									<svg class="arrow" id="materialArrow" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" width="24" height="24">
+										<path d="M7 10l5 5 5-5z" fill="#ffffff"/>
+									</svg>
+								</p>
+								<ul id="materialList" style="display: none;">
+									<li>
+										<a href="{{path('app_material')}}">Stock</a>
+									</li>
+									<li>
+										<a href="{{path('material_create')}}">Ajouter</a>
+									</li>
+
+								</ul>
+							</div>
+							<div class="user" id="nav-link">
+								<p onclick="toggleList('userList', 'userArrow')" style="cursor: pointer;">
+									<span class="material-symbols-outlined">supervised_user_circle</span>Utilisateur
+									<svg class="arrow" id="userArrow" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" width="24" height="24">
+										<path d="M7 10l5 5 5-5z" fill="#ffffff"/>
+									</svg>
+								</p>
+								<ul id="userList" style="display: none;">
+									<p class="title-list">Employés</p>
+									<li>
+										<a href="{{path('employee_index')}}">Liste</a>
+									</li>
+									<li>
+										<a href="{{path('employee_create')}}">Ajout</a>
+									</li>
+									<p class="title-list">Etudiants</p>
+									<li>
+										<a href="{{path('student_index')}}">Liste</a>
+									</li>
+									<li>
+										<a href="{{path('student_create')}}">Ajout</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				{% endblock %}
+			</header>
+		{% endblock %}
+	</head>
+	<body>
+
+		<main>
+			<div class="content-container"> {% block titlePage %}{% endblock %}
+				{% if app.user %}
+					<div class="user-profile">
+						<img src="{{ asset('images/account.png') }}" alt="User Profile Image">
+						<h6>{{ app.user.username }}</h6>
+						<form action="{{ path('app_logout') }}" method="post">
+							<button type="submit" class="logout-button">Déconnexion</button>
+						</form>
+					</div>
+				{% endif %}
+			</div>
+			{% block body %}{% endblock %}
+		</main>
+	</body>
 </html>
